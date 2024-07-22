@@ -1,13 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:to_do_list/widgets/button.dart';
 import '../model/coffee_model.dart';
 import '../service/coffee_service.dart';
 import 'home_screen.dart';
 
-class Onboarding extends StatelessWidget {
-  const Onboarding(
-      {super.key, required List<Coffee> coffeeList, required List coffee});
+class Onboarding extends StatefulWidget {
+  const Onboarding({super.key});
 
+  @override
+  _OnboardingState createState() => _OnboardingState();
+}
+
+class _OnboardingState extends State<Onboarding> {
+  resetNewLaunch() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    if (prefs.containsKey("newLaunch")) {
+      prefs.setBool('newLaunch', false);
+    } else {
+      prefs.setBool('newLaunch', false);
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +58,6 @@ class Onboarding extends StatelessWidget {
                                 color: Colors.white,
                               )),
                         ),
-
                       ],
                     ),
                     textAlign: TextAlign.left,
@@ -58,14 +70,14 @@ class Onboarding extends StatelessWidget {
                         children: [
                           TextSpan(
                               text:
-                                  'Welcome to our cozy coffee corner, where\n',
+                              'Welcome to our cozy coffee corner, where\n',
                               style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.white,
                               )),
                           WidgetSpan(
                             child: Padding(
-                              padding: const EdgeInsets.only(left: 25.0),
+                              padding: EdgeInsets.only(left: 25.0),
                               child: Text('every cup is a delightful for you',
                                   style: TextStyle(
                                     fontSize: 16,
@@ -82,7 +94,7 @@ class Onboarding extends StatelessWidget {
                   InkWell(
                     onTap: () async {
                       List<Coffee> coffeeList =
-                          await CoffeeService.getCoffeeList();
+                      await CoffeeService.getCoffeeList();
                       Navigator.push(
                         context,
                         MaterialPageRoute(

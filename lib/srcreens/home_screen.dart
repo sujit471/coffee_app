@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../model/coffee_model.dart';
 import '../widgets/card.dart';
 import '../srcreens/detailspage.dart';
@@ -13,9 +14,9 @@ class CoffeeListPage extends StatefulWidget {
 }
 
 class _CoffeeListPageState extends State<CoffeeListPage> {
+
   int _selectedIndex = 0;
   int _currentIndex = 0;
-
 
   void _onItemTapped(int index) {
     setState(() {
