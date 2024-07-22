@@ -11,7 +11,6 @@ class ImageCard extends StatelessWidget {
   final double imageHeight;
   final double? space;
   final String? type;
-
   ImageCard({
     required this.coffee,
     this.tag,
@@ -53,6 +52,7 @@ class ImageCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Stack(
