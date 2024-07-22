@@ -33,19 +33,19 @@ class ItemsinRow extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 12),
-                  const CustomButton.icon(
+                   CustomButton.icon(
                     iconPath: 'icon/scooter.svg',
                     width: 40,
                     backgrouncolor: Colors.grey,
                   ),
                   const SizedBox(width: 12),
-                  const CustomButton.icon(
+                CustomButton.icon(
                     iconPath: 'icon/coffee beans.svg',
                     width: 40,
                     backgrouncolor: Colors.grey,
                   ),
                   const SizedBox(width: 12),
-                  const CustomButton.icon(
+                  CustomButton.icon(
                     iconPath: 'icon/milk.svg',
                     width: 40,
                     backgrouncolor: Colors.grey,

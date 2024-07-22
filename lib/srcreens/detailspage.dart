@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:to_do_list/widgets/button.dart';
 import '../model/coffee_model.dart';
+import '../widgets/bottom.dart';
 import '../widgets/bottomsheet.dart';
 class Detailspage extends StatefulWidget {
   final Coffee coffee;
@@ -51,14 +52,15 @@ class _DetailspageState extends State<Detailspage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.asset(
-                  fit: BoxFit.cover,
-                  height: 300,
-                  width: double.infinity,
-                  widget.coffee.image,
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: SizedBox.fromSize(
+                    size: const Size.fromRadius(185),
+                    child: Image.asset( widget.coffee.image, fit: BoxFit.cover),
+                  ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(15.0),
+                  padding: const EdgeInsets.all(15.0),
                   child: Text(
                     widget.coffee.name,
                     style: const TextStyle(
@@ -81,19 +83,19 @@ class _DetailspageState extends State<Detailspage> {
                       const SizedBox(
                         width: 55,
                       ),
-                      const CustomButton.icon(
+                     const CustomButton.icon(
                         iconPath: 'icon/scooter.svg',
                         width: 70,
                         backgrouncolor: Colors.white,
                       ),
                       const SizedBox(width: 8),
-                      const CustomButton.icon(
+                     const CustomButton.icon(
                         iconPath: 'icon/coffe beans.svg',
                         width: 70,
                         backgrouncolor: Colors.white,
                       ),
                       const SizedBox(width: 8),
-                      const CustomButton.icon(
+                     const CustomButton.icon(
                         iconPath: 'icon/milk.svg',
                         width: 70,
                         backgrouncolor: Colors.white,
@@ -133,7 +135,7 @@ class _DetailspageState extends State<Detailspage> {
                       fontSize: 18),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(15.0),
+                  padding: const EdgeInsets.all(15.0),
                   child: Text(
                     widget.coffee.description,
                     style: const TextStyle(
@@ -168,7 +170,7 @@ class _DetailspageState extends State<Detailspage> {
                           child: Container(
                             padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
                             decoration: BoxDecoration(
-                              color: _currentIndex == index ? const Color(0xFFC67C4E) : Colors.black,
+                              color: _currentIndex == index ? const Color(0xFFC67C4E) : Colors.white,
                               borderRadius: BorderRadius.circular(12.0),
                             ),
                             child: Text(

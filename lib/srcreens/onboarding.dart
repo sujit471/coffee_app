@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_list/widgets/button.dart';
 import '../model/coffee_model.dart';
-
 import '../service/coffee_service.dart';
 import 'home_screen.dart';
 
 class Onboarding extends StatelessWidget {
-  const Onboarding({super.key});
+  const Onboarding(
+      {super.key, required List<Coffee> coffeeList, required List coffee});
 
   @override
   Widget build(BuildContext context) {
@@ -24,24 +24,84 @@ class Onboarding extends StatelessWidget {
             left: 0,
             right: 0,
             child: Center(
-              child: InkWell(
-                onTap: () async {
-                  List<Coffee> coffeeList = await CoffeeService.getCoffeeList();
-                  // Navigator.push(
-                  //   context
-                  //   MaterialPageRoute(
-                  //     builder: (context) => CoffeeListPage(coffeeList: coffeeList, coffee: ,),
-                  //   ),
-                  // );
-                },
-                child: const CustomButton(
-                  foregroundcolor: Color(0xFFEDD6CB),
-                  backgrouncolor: Color(0xFFC67C4E),
-                  width: 350,
-               text: 'Get Started',
-                  // text: 'Get Started',
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Text.rich(
+                    TextSpan(
+                      children: [
+                        TextSpan(
+                            text:
+                            'Fall in Love With \n',
+                            style: TextStyle(
+                              fontSize: 35,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            )),
+                        WidgetSpan(
+                          child: Text('Coffee in Blisful',
+                              style: TextStyle(
+                                fontSize: 40,
+                                color: Colors.white,
+                              )),
+                        ),
 
-                ),
+                      ],
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(height: 50,),
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan(
+                              text:
+                                  'Welcome to our cozy coffee corner, where\n',
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white,
+                              )),
+                          WidgetSpan(
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 25.0),
+                              child: Text('every cup is a delightful for you',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                  )),
+                            ),
+                          ),
+                        ],
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                  const SizedBox(height: 20), // Space between text and button
+                  InkWell(
+                    onTap: () async {
+                      List<Coffee> coffeeList =
+                          await CoffeeService.getCoffeeList();
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CoffeeListPage(
+                            coffeeList: coffeeList,
+                            coffee: [],
+                          ),
+                        ),
+                      );
+                    },
+                    child: const CustomButton(
+                      isActive: true,
+                      foregroundcolor: Color(0xFFEDD6CB),
+                      backgrouncolor: Color(0xFFC67C4E),
+                      width: 350,
+                      text: 'Get Started',
+                    ),
+                  ),
+                ],
               ),
             ),
           ),

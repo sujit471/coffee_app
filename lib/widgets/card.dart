@@ -84,7 +84,7 @@ class ImageCard extends StatelessWidget {
                                 Icons.star,
                                 color: Colors.yellow,
                               ),
-                              SizedBox(width: 4),
+                              const SizedBox(width: 4),
                               Text(
                                 tag!.toString(),
                                 style: const TextStyle(
@@ -143,8 +143,9 @@ class ImageCard extends StatelessWidget {
                     const CustomButton(
                       width: 60,
                       text: "+",
-                      foregroundcolor: Color(0xFFEDD6CB),
-                      backgrouncolor: Color(0xFFC67C4E),
+                      isActive: true,
+                      foregroundcolor: Colors.white,
+
                     ),
                   ],
                 ),

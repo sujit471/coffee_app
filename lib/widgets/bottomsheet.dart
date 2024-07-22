@@ -5,6 +5,7 @@ import '../srcreens/order_page.dart';
 
 class Bottomsheet extends StatefulWidget {
   final Coffee coffee;
+
   const Bottomsheet ({Key? key, required this.coffee}) : super(key: key);
   @override
   State<Bottomsheet > createState() => _BottomsheetState();
@@ -20,6 +21,7 @@ class _BottomsheetState extends State<Bottomsheet> {
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       child:  Row(
         children: [
+
            Column(
 
              children: [
