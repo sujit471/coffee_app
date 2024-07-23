@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import '../model/coffee_model.dart';
 import '../widgets/card.dart';
-import '../srcreens/detailspage.dart';
+
 
 class CoffeeListPage extends StatefulWidget {
   final List<Coffee> coffeeList;
@@ -94,6 +93,7 @@ class _CoffeeListPageState extends State<CoffeeListPage> {
        children: [
          Padding(
            padding: const EdgeInsets.all(12.0),
+
            child: SingleChildScrollView(
              scrollDirection: Axis.horizontal,
              child:Row(
@@ -112,7 +112,7 @@ class _CoffeeListPageState extends State<CoffeeListPage> {
                      child: Container(
                        padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
                        decoration: BoxDecoration(
-                         color: _currentIndex == index ? Color(0xFFC67C4E) : Colors.transparent,
+                         color: _currentIndex == index ? const Color(0xFFC67C4E) : Colors.transparent,
                          borderRadius: BorderRadius.circular(12.0),
                        ),
                        child: Text(

@@ -2,10 +2,13 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:to_do_list/srcreens/items_selected.dart';
 import 'package:to_do_list/widgets/button.dart';
 import '../model/coffee_model.dart';
 import '../widgets/bottom.dart';
 import '../widgets/bottomsheet.dart';
+
+
 class Detailspage extends StatefulWidget {
   final Coffee coffee;
   final List<Coffee> coffeeList;
@@ -24,6 +27,7 @@ class _DetailspageState extends State<Detailspage> {
     return Scaffold(
       bottomSheet: Bottomsheet(
         coffee: widget.coffee,
+        selectedVariation: widget.coffee.variations[_currentIndex],
       ),
       appBar: AppBar(
         toolbarHeight: 52,
@@ -37,9 +41,14 @@ class _DetailspageState extends State<Detailspage> {
           ),
         ),
         actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 15.0),
-            child: SvgPicture.asset('icon/heart.svg'),
+          InkWell(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder:(context)=>ItemsSelected()));
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(right: 15.0),
+              child: SvgPicture.asset('icon/heart.svg'),
+            ),
           ),
         ],
       ),
@@ -56,7 +65,7 @@ class _DetailspageState extends State<Detailspage> {
                   borderRadius: BorderRadius.circular(20),
                   child: SizedBox.fromSize(
                     size: const Size.fromRadius(185),
-                    child: Image.asset( widget.coffee.image, fit: BoxFit.cover),
+                    child: Image.asset(widget.coffee.image, fit: BoxFit.cover),
                   ),
                 ),
                 Padding(
@@ -83,19 +92,19 @@ class _DetailspageState extends State<Detailspage> {
                       const SizedBox(
                         width: 55,
                       ),
-                     const CustomButton.icon(
+                      const CustomButton.icon(
                         iconPath: 'icon/scooter.svg',
                         width: 70,
                         backgrouncolor: Colors.white,
                       ),
                       const SizedBox(width: 8),
-                     const CustomButton.icon(
+                      const CustomButton.icon(
                         iconPath: 'icon/coffe beans.svg',
                         width: 70,
                         backgrouncolor: Colors.white,
                       ),
                       const SizedBox(width: 8),
-                     const CustomButton.icon(
+                      const CustomButton.icon(
                         iconPath: 'icon/milk.svg',
                         width: 70,
                         backgrouncolor: Colors.white,
@@ -108,8 +117,11 @@ class _DetailspageState extends State<Detailspage> {
                   padding: const EdgeInsets.all(15.0),
                   child: Row(
                     children: [
-                      const Icon(Icons.star, color: Colors.yellow,),
-                      const SizedBox(width: 2,),
+                      const Icon(
+                        Icons.star,
+                        color: Colors.yellow,
+                      ),
+                      const SizedBox(width: 2),
                       Text(
                         '${widget.coffee.rating}',
                         style: const TextStyle(
@@ -117,7 +129,7 @@ class _DetailspageState extends State<Detailspage> {
                           color: Colors.black,
                         ),
                       ),
-                      const SizedBox(width: 7,),
+                      const SizedBox(width: 7),
                       Text('(${widget.coffee.ratingCount})'),
                     ],
                   ),
@@ -125,8 +137,7 @@ class _DetailspageState extends State<Detailspage> {
                 const Divider(
                   height: 1,
                 ),
-                const SizedBox(height: 12,),
-
+                const SizedBox(height: 12),
                 const Text(
                   "Description",
                   style: TextStyle(
@@ -168,9 +179,12 @@ class _DetailspageState extends State<Detailspage> {
                             });
                           },
                           child: Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 12.0, vertical: 8.0),
                             decoration: BoxDecoration(
-                              color: _currentIndex == index ? const Color(0xFFC67C4E) : Colors.white,
+                              color: _currentIndex == index
+                                  ? const Color(0xFFC67C4E)
+                                  : Colors.white,
                               borderRadius: BorderRadius.circular(12.0),
                             ),
                             child: Text(
@@ -179,7 +193,9 @@ class _DetailspageState extends State<Detailspage> {
                               style: TextStyle(
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
-                                color: _currentIndex == index ? Colors.white : Colors.black,
+                                color: _currentIndex == index
+                                    ? Colors.white
+                                    : Colors.black,
                               ),
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,

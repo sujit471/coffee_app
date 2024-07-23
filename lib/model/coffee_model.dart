@@ -10,6 +10,7 @@ class Coffee {
   final String image;
   final List<String> variations;
   final double price;
+  String? selectedVariation;
 
   Coffee({
     required this.id,
@@ -21,6 +22,7 @@ class Coffee {
     required this.image,
     required this.variations,
     required this.price,
+    this.selectedVariation,
   });
 
   factory Coffee.fromJson(Map<String, dynamic> json) {
@@ -34,7 +36,23 @@ class Coffee {
       image: json['image'],
       variations: List<String>.from(json['variations']),
       price: json['price'],
+      selectedVariation: json['selectedVariation'],
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'category': category,
+      'description': description,
+      'rating': rating,
+      'rating_count': ratingCount,
+      'image': image,
+      'variations': variations,
+      'price': price,
+      'selectedVariation': selectedVariation,
+    };
   }
 
   static List<Coffee> fromJsonList(String jsonString) {

@@ -35,7 +35,7 @@ class LoadPageState extends State<LoadPage> {
   @override
   Widget build(BuildContext context) {
     if (isLoading) {
-      return Scaffold(
+      return const Scaffold(
         body: Center(child: CircularProgressIndicator()),
       );
     }
