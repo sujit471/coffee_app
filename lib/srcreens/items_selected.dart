@@ -56,14 +56,14 @@ class _ItemsSelectedState extends State<ItemsSelected> {
                   child: ListTile(
                     title: Text(
                       coffee.name,
-                      style: const TextStyle(color: Colors.white), // Text color
+                      style: const TextStyle(color: Colors.white),
                     ),
                     subtitle: Text(
                       '\$${coffee.price.toStringAsFixed(2)}\nVariation: ${coffee.selectedVariation ?? 'N/A'}',
                       style: const TextStyle(color: Colors.white70), // Subtitle text color
                     ),
                     trailing: IconButton(
-                      icon: const Icon(Icons.delete, color: Colors.white), // Icon color
+                      icon: const Icon(Icons.delete, color: Colors.white),
                       onPressed: () {
                         _deleteCoffee(coffee.id);
                       },

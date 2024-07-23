@@ -46,14 +46,30 @@ class _BottomsheetState extends State<Bottomsheet> {
             ontap: () async {
               List<Coffee> selectedCoffees = await SessionHelper.getSelectedCoffees();
               widget.coffee.selectedVariation = widget.selectedVariation;
-              selectedCoffees.add(widget.coffee);
-              await SessionHelper.saveSelectedCoffees(selectedCoffees);
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => OrderPage(order: widget.coffee,),
-                ),
+
+              bool isAlreadySelected = selectedCoffees.any(
+                      (coffee) =>
+                  coffee.id == widget.coffee.id &&
+                      coffee.selectedVariation == widget.coffee.selectedVariation
               );
+
+              if (isAlreadySelected) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    duration: Duration(seconds: 2),
+                    content: Text('This coffee with selected variation is already selected.'),
+                  ),
+                );
+              } else {
+                selectedCoffees.add(widget.coffee);
+                await SessionHelper.saveSelectedCoffees(selectedCoffees);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => OrderPage(order: widget.coffee),
+                  ),
+                );
+              }
             },
             backgrouncolor: const Color(0xFFC67C4E),
             text: 'Buy Now',

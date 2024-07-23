@@ -68,7 +68,6 @@ class _Bottomsheet1State extends State<Bottomsheet1> {
                 const SnackBar(backgroundColor:Color(0xFFC67C4E),elevation: BorderSide.strokeAlignOutside,
                 padding: EdgeInsets.all(8),
                 duration: Duration(seconds: 2),
-
                     content: Text("Your order has been placed")),
 
               );
