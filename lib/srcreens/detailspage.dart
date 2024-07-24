@@ -8,12 +8,12 @@ import '../model/coffee_model.dart';
 import '../widgets/bottom.dart';
 import '../widgets/bottomsheet.dart';
 
-
 class Detailspage extends StatefulWidget {
   final Coffee coffee;
   final List<Coffee> coffeeList;
 
-  Detailspage({Key? key, required this.coffee, required this.coffeeList}) : super(key: key);
+  Detailspage({Key? key, required this.coffee, required this.coffeeList})
+      : super(key: key);
 
   @override
   _DetailspageState createState() => _DetailspageState();
@@ -42,8 +42,9 @@ class _DetailspageState extends State<Detailspage> {
         ),
         actions: [
           InkWell(
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder:(context)=>ItemsSelected()));
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ItemsSelected()));
             },
             child: Padding(
               padding: const EdgeInsets.only(right: 15.0),
@@ -73,7 +74,7 @@ class _DetailspageState extends State<Detailspage> {
                   child: Text(
                     widget.coffee.name,
                     style: const TextStyle(
-                      fontSize: 24,
+                      fontSize: 19,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -90,7 +91,7 @@ class _DetailspageState extends State<Detailspage> {
                         ),
                       ),
                       const SizedBox(
-                        width: 55,
+                        width: 17,
                       ),
                       const CustomButton.icon(
                         iconPath: 'icon/scooter.svg',
@@ -143,7 +144,7 @@ class _DetailspageState extends State<Detailspage> {
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
-                      fontSize: 18),
+                      fontSize: 17),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(15.0),
@@ -160,7 +161,7 @@ class _DetailspageState extends State<Detailspage> {
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
-                      fontSize: 18),
+                      fontSize: 17),
                 ),
                 SizedBox(
                   height: 50,

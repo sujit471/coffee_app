@@ -1,9 +1,13 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:to_do_list/srcreens/order_page.dart';
 import 'package:to_do_list/widgets/button.dart';
 import 'package:to_do_list/widgets/mapsbottom.dart';
-class Maps extends StatelessWidget {
-  const Maps({super.key});
 
+import '../model/coffee_model.dart';
+class Maps extends StatelessWidget {
+  const Maps({super.key, required this.coffee});
+final Coffee coffee;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +20,7 @@ class Maps extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          const Positioned(
+          Positioned(
             top: 50,
             left: 0,
             right: 0,
@@ -27,8 +31,12 @@ class Maps extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
                   children: [
-                    CustomButton.icon(iconPath: 'icon/arrow.svg'),
-                    CustomButton.icon(iconPath: 'icon/location.svg'),
+                    InkWell(
+                      onTap: (){
+                        Navigator.pop(context,MaterialPageRoute(builder:(context)=>OrderPage(order:coffee)));
+                      },
+                        child: const CustomButton.icon(iconPath: 'icon/arrow.svg')),
+                    const CustomButton.icon(iconPath: 'icon/location.svg'),
                   ],
                 ),
               ),

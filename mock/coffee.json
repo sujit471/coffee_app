@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "Moccja",
-        "category": "Ice Tea",
+        "category": "Iced",
         "description": "A refreshing iced tea with a hint of mocha flavor.",
         "rating": 4.8,
         "rating_count": 12,
@@ -17,7 +17,7 @@
     {
         "id": 2,
         "name": "Espresso",
-        "category": "Coffee",
+        "category": "Traditional",
         "description": "A rich and strong shot of espresso with a robust flavor.",
         "rating": 4.7,
         "rating_count": 20,
@@ -31,7 +31,7 @@
     {
         "id": 3,
         "name": "Latte",
-        "category": "Coffee",
+        "category": "Milk-Based",
         "description": "A smooth and creamy latte made with freshly brewed espresso and steamed milk.",
         "rating": 4.9,
         "rating_count": 35,
@@ -46,7 +46,7 @@
     {
         "id": 4,
         "name": "Cappuccino",
-        "category": "Coffee",
+        "category": "Milk-Based",
         "description": "A perfect blend of espresso, steamed milk, and foam for a balanced and flavorful drink.",
         "rating": 4.8,
         "rating_count": 28,
@@ -61,7 +61,7 @@
     {
         "id": 5,
         "name": "Americano",
-        "category": "Coffee",
+        "category": "Traditional",
         "description": "A classic Americano made by diluting espresso with hot water for a bold yet smooth taste.",
         "rating": 4.6,
         "rating_count": 18,
@@ -76,7 +76,7 @@
     {
         "id": 6,
         "name": "Mocha",
-        "category": "Coffee",
+        "category": "Specialty",
         "description": "A delightful blend of espresso, chocolate syrup, and steamed milk, topped with whipped cream.",
         "rating": 4.9,
         "rating_count": 40,
@@ -91,12 +91,12 @@
     {
         "id": 7,
         "name": "Macchiato",
-        "category": "Coffee",
+        "category": "Traditional",
         "description": "A bold and rich espresso macchiato with a touch of steamed milk and foam.",
         "rating": 4.7,
         "rating_count": 22,
         "image": "image/macchiato.jpg",
-        "variations": [kjbvc
+        "variations": [
             "Single",
             "Double"
         ],
@@ -105,7 +105,7 @@
     {
         "id": 8,
         "name": "Flat White",
-        "category": "Coffee",
+        "category": "Milk-Based",
         "description": "A smooth and velvety flat white made with rich espresso and steamed milk.",
         "rating": 4.8,
         "rating_count": 25,
@@ -120,7 +120,7 @@
     {
         "id": 9,
         "name": "Cold Brew",
-        "category": "Coffee",
+        "category": "Cold",
         "description": "A refreshing and smooth cold brew coffee, perfect for a hot day.",
         "rating": 4.7,
         "rating_count": 30,
@@ -135,7 +135,7 @@
     {
         "id": 10,
         "name": "Nitro Coffee",
-        "category": "Coffee",
+        "category": "Cold",
         "description": "A unique and creamy nitro coffee infused with nitrogen for a smooth finish.",
         "rating": 4.9,
         "rating_count": 15,
@@ -150,7 +150,7 @@
     {
         "id": 11,
         "name": "Iced Coffee",
-        "category": "Coffee",
+        "category": "Cold",
         "description": "A classic iced coffee brewed fresh and served cold.",
         "rating": 4.6,
         "rating_count": 18,
@@ -165,7 +165,7 @@
     {
         "id": 12,
         "name": "Affogato",
-        "category": "Coffee",
+        "category": "Specialty",
         "description": "A delightful combination of hot espresso poured over creamy vanilla ice cream.",
         "rating": 4.8,
         "rating_count": 12,

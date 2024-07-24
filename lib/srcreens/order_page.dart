@@ -15,8 +15,8 @@ class OrderPage extends StatefulWidget {
 }
 
 class _OrderPageState extends State<OrderPage> {
-  int _currentIndex = 0;
-  int count = 0;
+  int _currentIndex = 1;
+  int count = 1;
 
   String get total {
     return (widget.order.price + 1.0).toStringAsFixed(2);
@@ -53,13 +53,13 @@ class _OrderPageState extends State<OrderPage> {
                       CustomButton(
                         width: 160,
                         foregroundcolor:
-                            _currentIndex == 1 ? Colors.white : Colors.black,
+                        _currentIndex == 1 ? Colors.white : Colors.black,
                         text: 'Deliver',
+
                         isActive: _currentIndex == 1,
                         ontap: () {
                           setState(() {
                             _currentIndex = 1;
-                            print('tapped');
                           });
                         },
                       ),
@@ -69,13 +69,12 @@ class _OrderPageState extends State<OrderPage> {
                       CustomButton(
                         width: 160,
                         foregroundcolor:
-                            _currentIndex == 2 ? Colors.white : Colors.black,
+                        _currentIndex == 2 ? Colors.white : Colors.black,
                         text: 'Pickup',
                         isActive: _currentIndex == 2,
                         ontap: () {
                           setState(() {
                             _currentIndex = 2;
-                            print('tapped');
                           });
                         },
                       ),
@@ -89,21 +88,21 @@ class _OrderPageState extends State<OrderPage> {
             ),
             const Text(
               'Delivery Address',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             const SizedBox(
               height: 10,
             ),
             const Text(
               'J1 . Kpg Sutuyo',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             const SizedBox(
               height: 12,
             ),
             const Text(
               'Kpg.Sutyo no. 820,Blizen , Istanbul',
-              style: TextStyle(color: Colors.grey, fontSize: 18),
+              style: TextStyle(color: Colors.grey, fontSize: 16),
             ),
             const SizedBox(
               height: 15,
@@ -111,8 +110,9 @@ class _OrderPageState extends State<OrderPage> {
             const Row(
               children: [
                 CustomButton(
+                  fontsize: 15,
                   text: 'Edit address',
-                  width: 200,
+                  width:  190,
                   backgrouncolor: Colors.white,
                   foregroundcolor: Colors.black,
                   icon: Icons.note_add_outlined,
@@ -121,8 +121,9 @@ class _OrderPageState extends State<OrderPage> {
                   width: 12,
                 ),
                 CustomButton(
+                  fontsize: 15,
                   text: 'Add note',
-                  width: 150,
+                  width: 160,
                   foregroundcolor: Colors.black,
                   backgrouncolor: Colors.white,
                   icon: Icons.newspaper,
@@ -143,7 +144,7 @@ class _OrderPageState extends State<OrderPage> {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: SizedBox.fromSize(
-                    size: Size.fromRadius(48),
+                    size: const Size.fromRadius(48),
                     child: Image.asset(widget.order.image, fit: BoxFit.cover),
                   ),
                 ),
@@ -151,12 +152,13 @@ class _OrderPageState extends State<OrderPage> {
                   width: 5,
                 ),
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       widget.order.name,
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 18,
+                        fontSize: 16,
                       ),
                     ),
                     Text(
@@ -167,9 +169,7 @@ class _OrderPageState extends State<OrderPage> {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  width: 50,
-                ),
+                const Spacer(),
                 IconButton(
                   onPressed: () {
                     setState(() {
@@ -220,7 +220,7 @@ class _OrderPageState extends State<OrderPage> {
                     const Text(
                       "1 Discount in Applies ",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 15,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -234,7 +234,7 @@ class _OrderPageState extends State<OrderPage> {
             ),
             const Text(
               "Payment Summary",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -242,13 +242,13 @@ class _OrderPageState extends State<OrderPage> {
                 const Text(
                   'Price',
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 16,
                   ),
                 ),
                 Text(
                   '\$${widget.order.price.toStringAsFixed(2)}',
                   style: const TextStyle(
-                    fontSize: 18,
+                    fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
                   ),
@@ -260,7 +260,7 @@ class _OrderPageState extends State<OrderPage> {
               children: [
                 Text('Delivery Fee',
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 16,
                     )),
                 Row(
                   children: [

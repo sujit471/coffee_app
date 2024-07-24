@@ -46,13 +46,11 @@ class _BottomsheetState extends State<Bottomsheet> {
             ontap: () async {
               List<Coffee> selectedCoffees = await SessionHelper.getSelectedCoffees();
               widget.coffee.selectedVariation = widget.selectedVariation;
-
               bool isAlreadySelected = selectedCoffees.any(
                       (coffee) =>
                   coffee.id == widget.coffee.id &&
                       coffee.selectedVariation == widget.coffee.selectedVariation
               );
-
               if (isAlreadySelected) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
@@ -61,6 +59,15 @@ class _BottomsheetState extends State<Bottomsheet> {
                   ),
                 );
               } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                 const SnackBar(
+                    elevation: 4,
+                   behavior: SnackBarBehavior.floating,
+                    backgroundColor:  Color(0xFFC67C4E),
+                    duration: Duration(seconds: 3),
+                    content: Text('Your order is being processed'),
+                  ),
+                );
                 selectedCoffees.add(widget.coffee);
                 await SessionHelper.saveSelectedCoffees(selectedCoffees);
                 Navigator.push(

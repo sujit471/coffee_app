@@ -76,7 +76,7 @@ class _Bottomsheet1State extends State<Bottomsheet1> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const Maps(),
+                  builder: (context) =>  Maps(coffee: widget.coffee,),
                 ),
               );
             },

@@ -63,7 +63,7 @@ class _ItemsSelectedState extends State<ItemsSelected> {
                       style: const TextStyle(color: Colors.white70), // Subtitle text color
                     ),
                     trailing: IconButton(
-                      icon: const Icon(Icons.delete, color: Colors.white),
+                      icon: const Icon(Icons.delete, color: Colors.white), // Icon color
                       onPressed: () {
                         _deleteCoffee(coffee.id);
                       },

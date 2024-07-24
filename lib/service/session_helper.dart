@@ -8,7 +8,6 @@ class SessionHelper {
     final String coffeesJson = jsonEncode(coffees.map((coffee) => coffee.toJson()).toList());
     await prefs.setString('selectedCoffees', coffeesJson);
   }
-
   static Future<List<Coffee>> getSelectedCoffees() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final String? coffeesJson = prefs.getString('selectedCoffees');

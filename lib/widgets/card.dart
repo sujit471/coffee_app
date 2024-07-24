@@ -38,13 +38,13 @@ class ImageCard extends StatelessWidget {
           width: double.infinity,
          height: 160,
           decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                spreadRadius: 5,
-                blurRadius: 7,
-              ),
-            ],
+            // boxShadow: [
+            //   BoxShadow(
+            //     color: Colors.grey.withOpacity(0.5),
+            //     spreadRadius: 5,
+            //     blurRadius: 7,
+            //   ),
+            // ],
             color: Colors.white,
             borderRadius: BorderRadius.circular(8),
           ),
@@ -106,7 +106,7 @@ class ImageCard extends StatelessWidget {
                   coffee.name,
                   textAlign: TextAlign.start,
                   style: const TextStyle(
-                    fontSize: 19,
+                    fontSize: 17,
                     fontWeight: FontWeight.bold,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -134,7 +134,7 @@ class ImageCard extends StatelessWidget {
                       '\$${coffee.price.toStringAsFixed(2)}',
                       textAlign: TextAlign.start,
                       style: const TextStyle(
-                        fontSize: 18,
+                        fontSize: 17,
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
                       ),
