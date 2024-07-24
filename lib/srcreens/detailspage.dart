@@ -1,11 +1,8 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:to_do_list/srcreens/items_selected.dart';
 import 'package:to_do_list/widgets/button.dart';
 import '../model/coffee_model.dart';
-import '../widgets/bottom.dart';
 import '../widgets/bottomsheet.dart';
 
 class Detailspage extends StatefulWidget {

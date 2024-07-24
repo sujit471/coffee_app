@@ -64,7 +64,7 @@ class _BottomsheetState extends State<Bottomsheet> {
                     elevation: 4,
                    behavior: SnackBarBehavior.floating,
                     backgroundColor:  Color(0xFFC67C4E),
-                    duration: Duration(seconds: 3),
+                    duration: Duration(seconds: 2),
                     content: Text('Your order is being processed'),
                   ),
                 );

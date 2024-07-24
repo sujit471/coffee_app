@@ -106,7 +106,8 @@ class _CoffeeListPageState extends State<CoffeeListPage> with SingleTickerProvid
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 20,),
-            TabBar(splashFactory: NoSplash.splashFactory,
+            TabBar(
+              splashFactory: NoSplash.splashFactory,
               tabAlignment: TabAlignment.start,
               dividerHeight: 0,
               indicatorPadding: EdgeInsets.zero,
@@ -120,7 +121,6 @@ class _CoffeeListPageState extends State<CoffeeListPage> with SingleTickerProvid
                 final isSelected = _tabController.index == uniqueCategories.indexOf(category);
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-                  //padding: const EdgeInsets.only(right: , vertical: 8.0),
                   child: Text(
                     category,
                     style: TextStyle(

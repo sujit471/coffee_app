@@ -11,7 +11,7 @@ class ImageCard extends StatelessWidget {
   final double imageHeight;
   final double? space;
   final String? type;
-  ImageCard({
+  const ImageCard({
     required this.coffee,
     this.tag,
     this.tagColor,
