@@ -10,6 +10,7 @@ class CustomButton extends StatelessWidget {
   final String iconPath;
   final IconData? icon;
   final bool? isActive;
+  final double ? fontsize;
 
   const CustomButton({
     super.key,
@@ -19,7 +20,7 @@ class CustomButton extends StatelessWidget {
     this.ontap,
     this.backgrouncolor,
     this.icon,
-    this.isActive,
+    this.isActive, this.fontsize,
   }) : iconPath = '';
 
   const CustomButton.icon({
@@ -30,7 +31,7 @@ class CustomButton extends StatelessWidget {
     this.ontap,
     this.backgrouncolor,
     this.icon,
-    this.isActive,
+    this.isActive, this.fontsize,
   }) : text = '';
 
   @override
@@ -70,7 +71,7 @@ class CustomButton extends StatelessWidget {
                   text,
                   style: TextStyle(
                     color: foregroundcolor ?? Colors.white,
-                    fontSize: 18,
+                    fontSize: fontsize??18,
                   ),
                   overflow: TextOverflow.ellipsis,
                 ),

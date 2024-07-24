@@ -13,14 +13,11 @@ class Onboarding extends StatefulWidget {
 }
 
 class _OnboardingState extends State<Onboarding> {
-  resetNewLaunch() async {
+  Future<void> resetNewLaunch() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    if (prefs.containsKey("newLaunch")) {
-      prefs.setBool('newLaunch', false);
-    } else {
-      prefs.setBool('newLaunch', false);
-    }
+    prefs.setBool('newLaunch', false);
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,45 +41,49 @@ class _OnboardingState extends State<Onboarding> {
                     TextSpan(
                       children: [
                         TextSpan(
-                            text:
-                            'Fall in Love With \n',
+                            text: 'Fall in Love With \n',
                             style: TextStyle(
                               fontSize: 35,
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
-                            )),
+                            )
+                        ),
                         WidgetSpan(
-                          child: Text('Coffee in Blisful',
+                          child: Text(
+                              'Coffee in Blissful',
                               style: TextStyle(
                                 fontSize: 40,
                                 color: Colors.white,
-                              )),
+                              )
+                          ),
                         ),
                       ],
                     ),
                     textAlign: TextAlign.left,
                   ),
-                  SizedBox(height: 50,),
+                  const SizedBox(height: 50,),
                   const Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Text.rich(
                       TextSpan(
                         children: [
                           TextSpan(
-                              text:
-                              'Welcome to our cozy coffee corner, where\n',
+                              text: 'Welcome to our cozy coffee corner, where\n',
                               style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.white,
-                              )),
+                              )
+                          ),
                           WidgetSpan(
                             child: Padding(
                               padding: EdgeInsets.only(left: 25.0),
-                              child: Text('every cup is a delightful for you',
+                              child: Text(
+                                  'every cup is a delightful for you',
                                   style: TextStyle(
                                     fontSize: 16,
                                     color: Colors.white,
-                                  )),
+                                  )
+                              ),
                             ),
                           ),
                         ],
@@ -93,9 +94,9 @@ class _OnboardingState extends State<Onboarding> {
                   const SizedBox(height: 20), // Space between text and button
                   InkWell(
                     onTap: () async {
-                      List<Coffee> coffeeList =
-                      await CoffeeService.getCoffeeList();
-                      Navigator.push(
+                      await resetNewLaunch();
+                      List<Coffee> coffeeList = await CoffeeService.getCoffeeList();
+                      Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                           builder: (context) => CoffeeListPage(

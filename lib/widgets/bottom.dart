@@ -62,15 +62,28 @@ class _Bottomsheet1State extends State<Bottomsheet1> {
           ),
           const Spacer(),
           CustomButton(
-              ontap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Maps(),
-                    ));
-              },
-              backgrouncolor: const Color(0xFFC67C4E),
-              text: 'Order')
+            ontap: () {
+
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(backgroundColor:Color(0xFFC67C4E),elevation: BorderSide.strokeAlignOutside,
+                padding: EdgeInsets.all(8),
+                duration: Duration(seconds: 2),
+                    content: Text("Your order has been placed")),
+
+              );
+
+              // Navigate to the next page
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>  Maps(coffee: widget.coffee,),
+                ),
+              );
+            },
+            backgrouncolor: const Color(0xFFC67C4E),
+            text: 'Order',
+          )
+
         ],
       ),
     );
