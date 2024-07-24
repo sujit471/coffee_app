@@ -16,6 +16,7 @@ class _OrderPageState extends State<OrderPage>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
   int count = 1;
+  int _curretIndex = 0;
 
   @override
   void initState() {
@@ -23,7 +24,8 @@ class _OrderPageState extends State<OrderPage>
     _tabController = TabController(length: 2, vsync: this)
       ..addListener(() {
         setState(() {
-          // Update the state when tab changes
+          _curretIndex = _tabController.index;
+
         });
       });
   }
@@ -50,33 +52,31 @@ class _OrderPageState extends State<OrderPage>
             controller: _tabController,
             indicatorColor: Colors.transparent,
             tabs: [
-              Tab(
-                child: CustomButton(
-                  width: 160,
-                  foregroundcolor: _tabController.index == 0 ? Colors.white : Colors.black,
-                  text: 'Deliver',
-                  isActive: _tabController.index == 0,
-                  ontap: () {
-                    _tabController.animateTo(0);
-                  },
-                ),
+              CustomButton(
+                width: 160,
+                foregroundcolor: _curretIndex== 0 ? Colors.white : Colors.black,
+                text: 'Deliver',
+                isActive: _curretIndex== 0,
+                ontap: () {
+                  _tabController.animateTo(0);
+                },
               ),
-              Tab(
-                child: CustomButton(
-                  width: 160,
-                  foregroundcolor: _tabController.index == 1 ? Colors.white : Colors.black,
-                  text: 'Pickup',
-                  isActive: _tabController.index == 1,
-                  ontap: () {
-                    _tabController.animateTo(1);
-                  },
-                ),
+              CustomButton(
+                width: 160,
+                foregroundcolor: _curretIndex == 1 ? Colors.white : Colors.black,
+                text: 'Pickup',
+                isActive: _curretIndex == 1,
+                ontap: () {
+                  _tabController.animateTo(1);
+                },
               ),
             ],
           ),
         ),
         body: TabBarView(
+          physics: NeverScrollableScrollPhysics(),
           controller: _tabController,
+
           children: [
             // Deliver Tab
             Padding(

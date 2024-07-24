@@ -17,13 +17,11 @@ class SessionHelper {
     }
     return [];
   }
-
   static Future<void> removeSelectedCoffee(int coffeeId) async {
     final List<Coffee> selectedCoffees = await getSelectedCoffees();
     selectedCoffees.removeWhere((coffee) => coffee.id == coffeeId);
     await saveSelectedCoffees(selectedCoffees);
   }
-
   static Future<void> clearSelectedCoffees() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.remove('selectedCoffees');

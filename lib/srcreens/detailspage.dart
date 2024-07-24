@@ -4,14 +4,12 @@ import 'package:to_do_list/srcreens/items_selected.dart';
 import 'package:to_do_list/widgets/button.dart';
 import '../model/coffee_model.dart';
 import '../widgets/bottomsheet.dart';
-
 class Detailspage extends StatefulWidget {
   final Coffee coffee;
   final List<Coffee> coffeeList;
 
   Detailspage({Key? key, required this.coffee, required this.coffeeList})
       : super(key: key);
-
   @override
   _DetailspageState createState() => _DetailspageState();
 }
