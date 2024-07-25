@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:to_do_list/widgets/button.dart';
-
-import '../service/custom_sizedbox.dart';
+import 'package:to_do_list/service/custom_sizedbox.dart';
+import '../service/image_helper.dart';
 import 'custom_style_text.dart';
 class MapsBottom extends StatefulWidget {
   const MapsBottom({Key? key}) : super(key: key);
@@ -40,7 +40,7 @@ class _MapsBottomState extends State<MapsBottom> {
               padding:  EdgeInsets.all(8.0),
               child: Row(
                 children: [
-                  const CustomButton.icon(iconPath: 'icon/scooter.svg'),
+                  const CustomButton.icon(iconPath: AssetList.scooter),
                   SizedBoxHelper.width(10),
                Column(
                  crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,7 +61,7 @@ class _MapsBottomState extends State<MapsBottom> {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(20),
-                  child: Image.asset('image/coffee.jpg',height: 50,width: 50,),),
+                  child: Image.asset(AssetList.coffee,height: 50,width: 50,),),
               SizedBoxHelper.width(5),
                Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,7 +72,7 @@ class _MapsBottomState extends State<MapsBottom> {
               ),
               const SizedBox(width: 38,),
 
-              const CustomButton.icon(iconPath: 'icon/wallet.svg',),
+              const CustomButton.icon(iconPath: AssetList.wallet,),
             ],
           )
         ],

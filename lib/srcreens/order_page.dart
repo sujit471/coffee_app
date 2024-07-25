@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:to_do_list/model/coffee_model.dart';
 import 'package:to_do_list/service/custom_sizedbox.dart';
+import 'package:to_do_list/service/image_helper.dart';
 import 'package:to_do_list/widgets/button.dart';
 import 'package:to_do_list/widgets/custom_style_text.dart';
 import '../widgets/order_bottom.dart';
@@ -182,8 +183,13 @@ class _OrderPageState extends State<OrderPage>
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
+                          // SvgPicture.asset(
+                          //   'assets/icon/discount.svg',
+                          //   color: const Color(0xFFC67C4E),
+                          //   height: 40,
+                          // ),
                           SvgPicture.asset(
-                            'assets/icon/discount.svg',
+                            AssetList.discount  ,
                             color: const Color(0xFFC67C4E),
                             height: 40,
                           ),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../model/coffee_model.dart';
-import '../widgets/card.dart';
+import 'package:to_do_list/model/coffee_model.dart';
+import 'package:to_do_list/service/image_helper.dart';
+import 'package:to_do_list/widgets/card.dart';
 
 class CoffeeListPage extends StatefulWidget {
   final List<Coffee> coffeeList;
@@ -180,19 +181,19 @@ class _CoffeeListPageState extends State<CoffeeListPage> with SingleTickerProvid
             child: BottomNavigationBar(
               items: <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
-                  icon: BuildBottomNavItem('icon/home.svg', 0),
+                  icon: BuildBottomNavItem(AssetList.home, 0),
                   label: 'Home',
                 ),
                 BottomNavigationBarItem(
-                  icon: BuildBottomNavItem('icon/heart.svg', 1),
+                  icon: BuildBottomNavItem(AssetList.heart, 1),
                   label: 'Category',
                 ),
                 BottomNavigationBarItem(
-                  icon: BuildBottomNavItem('icon/notification.svg', 2),
+                  icon: BuildBottomNavItem(AssetList.notifications, 2),
                   label: 'Profile',
                 ),
                 BottomNavigationBarItem(
-                  icon: BuildBottomNavItem('icon/wallet.svg', 3),
+                  icon: BuildBottomNavItem(AssetList.wallet, 3),
                   label: 'Profile',
                 ),
               ],

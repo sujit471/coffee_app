@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_list/service/custom_sizedbox.dart';
+import 'package:to_do_list/service/navigation_to_page.dart';
 import 'package:to_do_list/widgets/button.dart';
 import 'package:to_do_list/widgets/custom_style_text.dart';
-import '../model/coffee_model.dart';
-import '../srcreens/detailspage.dart';
-
-class ImageCard extends StatelessWidget {
+import 'package:to_do_list/model/coffee_model.dart';
+import 'package:to_do_list/srcreens/detailspage.dart';
+class ImageCard extends StatelessWidget  with NavigationToPage{
   final Coffee coffee;
   final double? tag;
   final Color? tagColor;
@@ -27,12 +27,7 @@ class ImageCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => Detailspage(coffee: coffee, coffeeList: [],),
-            )
-        );
+   navigateTo(context, Detailspage(coffee: coffee, coffeeList: []));
       },
       child: Card(
         elevation: 4,

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:to_do_list/service/image_helper.dart';
 import 'package:to_do_list/srcreens/items_selected.dart';
 import 'package:to_do_list/widgets/button.dart';
 import 'package:to_do_list/widgets/custom_style_text.dart';
-import '../model/coffee_model.dart';
-import '../service/custom_sizedbox.dart';
-import '../widgets/bottomsheet.dart';
+import 'package:to_do_list/model/coffee_model.dart';
+import 'package:to_do_list/service/custom_sizedbox.dart';
+import 'package:to_do_list/widgets/bottomsheet.dart';
 class Detailspage extends StatefulWidget {
   final Coffee coffee;
   final List<Coffee> coffeeList;
@@ -45,7 +46,7 @@ class _DetailspageState extends State<Detailspage> {
             },
             child: Padding(
               padding: const EdgeInsets.only(right: 15.0),
-              child: SvgPicture.asset('icon/heart.svg'),
+              child: SvgPicture.asset(AssetList.heart),
             ),
           ),
         ],
@@ -83,19 +84,19 @@ class _DetailspageState extends State<Detailspage> {
                       ),
                       SizedBoxHelper.width(17),
                       const CustomButton.icon(
-                        iconPath: 'icon/scooter.svg',
+                        iconPath: AssetList.scooter,
                         width: 70,
                         backgrouncolor: Colors.white,
                       ),
                       SizedBoxHelper.width(8),
                       const CustomButton.icon(
-                        iconPath: 'icon/coffe beans.svg',
+                        iconPath: AssetList.beans,
                         width: 70,
                         backgrouncolor: Colors.white,
                       ),
                       SizedBoxHelper.width(8),
                       const CustomButton.icon(
-                        iconPath: 'icon/milk.svg',
+                        iconPath: AssetList.milk,
                         width: 70,
                         backgrouncolor: Colors.white,
                       ),

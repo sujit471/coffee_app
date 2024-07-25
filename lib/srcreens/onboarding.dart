@@ -25,7 +25,7 @@ class _OnboardingState extends State<Onboarding> {
         children: [
           Positioned.fill(
             child: Image.asset(
-              'image/coffee.jpg',
+              'assets/image/coffee.jpg',
               fit: BoxFit.cover,
             ),
           ),

@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-
-import '../model/coffee_model.dart';
-import '../service/session_helper.dart';
-
+import 'package:to_do_list/model/coffee_model.dart';
+import 'package:to_do_list/service/session_helper.dart';
 class ItemsSelected extends StatefulWidget {
   @override
   _ItemsSelectedState createState() => _ItemsSelectedState();
 }
-
 class _ItemsSelectedState extends State<ItemsSelected> {
   late Future<List<Coffee>> _selectedCoffeesFuture;
 
