@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:to_do_list/srcreens/Maps.dart';
+import 'package:to_do_list/srcreens/maps.dart';
 import 'package:to_do_list/widgets/button.dart';
 import '../model/coffee_model.dart';
 import '../srcreens/order_page.dart';
 
-class Bottomsheet1 extends StatefulWidget {
+class OrderBottom extends StatefulWidget {
   final Coffee coffee;
 
-  const Bottomsheet1({Key? key, required this.coffee}) : super(key: key);
+  const OrderBottom({Key? key, required this.coffee}) : super(key: key);
 
   @override
-  State<Bottomsheet1> createState() => _Bottomsheet1State();
+  State<OrderBottom> createState() => _OrderBottomState();
 }
 
-class _Bottomsheet1State extends State<Bottomsheet1> {
+class _OrderBottomState extends State<OrderBottom> {
   String get total {
     return (widget.coffee.price + 1.0).toStringAsFixed(2);
   }

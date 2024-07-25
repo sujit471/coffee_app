@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:to_do_list/model/coffee_model.dart';
+import 'package:to_do_list/service/custom_sizedbox.dart';
 import 'package:to_do_list/widgets/button.dart';
-import '../widgets/bottom.dart';
-
+import 'package:to_do_list/widgets/custom_style_text.dart';
+import '../widgets/order_bottom.dart';
 class OrderPage extends StatefulWidget {
   final Coffee order;
-
   const OrderPage({super.key, required this.order});
   @override
   State<OrderPage> createState() => _OrderPageState();
 }
-
 class _OrderPageState extends State<OrderPage>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
@@ -41,7 +40,7 @@ class _OrderPageState extends State<OrderPage>
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        bottomSheet: Bottomsheet1(
+        bottomSheet: OrderBottom(
           coffee: widget.order,
         ),
         appBar: AppBar(
@@ -74,9 +73,8 @@ class _OrderPageState extends State<OrderPage>
           ),
         ),
         body: TabBarView(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           controller: _tabController,
-
           children: [
             // Deliver Tab
             Padding(
@@ -84,25 +82,25 @@ class _OrderPageState extends State<OrderPage>
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 40),
-                  const Text(
+                  SizedBoxHelper.height(40),
+                  Text(
                     'Delivery Address',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    style: CustomStyleText.subheader(fontweight: FontWeight.bold),
                   ),
-                  const SizedBox(height: 10),
-                  const Text(
+                  SizedBoxHelper.height(10),
+                 Text(
                     'J1 . Kpg Sutuyo',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    style: CustomStyleText.subheader(fontweight: FontWeight.bold),
                   ),
                   const SizedBox(height: 12),
                   const Text(
                     'Kpg.Sutyo no. 820, Blizen, Istanbul',
                     style: TextStyle(color: Colors.grey, fontSize: 16),
                   ),
-                  const SizedBox(height: 15),
-                  const Row(
+                   SizedBoxHelper.height(15),
+                   Row(
                     children: [
-                      CustomButton(
+                      const CustomButton(
                         fontsize: 15,
                         text: 'Edit address',
                         width: 190,
@@ -110,8 +108,8 @@ class _OrderPageState extends State<OrderPage>
                         foregroundcolor: Colors.black,
                         icon: Icons.note_add_outlined,
                       ),
-                      SizedBox(width: 12),
-                      CustomButton(
+                      SizedBoxHelper.width(12),
+                      const CustomButton(
                         fontsize: 15,
                         text: 'Add note',
                         width: 160,
@@ -121,9 +119,9 @@ class _OrderPageState extends State<OrderPage>
                       ),
                     ],
                   ),
-                  const SizedBox(height: 12),
+                 SizedBoxHelper.height( 12),
                   const Divider(height: 1),
-                  const SizedBox(height: 12),
+                   SizedBoxHelper.height(12),
                   Row(
                     children: [
                       ClipRRect(
@@ -133,22 +131,17 @@ class _OrderPageState extends State<OrderPage>
                           child: Image.asset(widget.order.image, fit: BoxFit.cover),
                         ),
                       ),
-                      const SizedBox(width: 5),
+                       SizedBoxHelper.width( 5),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             widget.order.name,
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                            ),
+                            style: CustomStyleText.subheader(fontweight: FontWeight.bold),
                           ),
                           Text(
                             widget.order.category,
-                            style: const TextStyle(
-                              fontSize: 14,
-                            ),
+                            style: CustomStyleText.subheader(color: Colors.grey),
                           ),
                         ],
                       ),
@@ -175,9 +168,9 @@ class _OrderPageState extends State<OrderPage>
                       ),
                     ],
                   ),
-                  const SizedBox(height: 12),
+                   SizedBoxHelper.height(12),
                   const Divider(height: 1),
-                  const SizedBox(height: 12),
+                   SizedBoxHelper.height(12),
                   Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: Container(
@@ -190,34 +183,29 @@ class _OrderPageState extends State<OrderPage>
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           SvgPicture.asset(
-                            'icon/discount.svg',
+                            'assets/icon/discount.svg',
                             color: const Color(0xFFC67C4E),
                             height: 40,
                           ),
-                          const Text(
+                          Text(
                             "1 Discount in Applies",
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: CustomStyleText.subheader(fontweight: FontWeight.bold),
                           ),
                           const Icon(Icons.arrow_forward_ios),
                         ],
                       ),
                     ),
                   ),
-                  const Text(
+                  Text(
                     "Pickup Summary",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                    style: CustomStyleText.header(),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text(
+                      Text(
                         'Price',
-                        style: TextStyle(
-                          fontSize: 16,
-                        ),
+                        style: CustomStyleText.subheader(),
                       ),
                       Text(
                         '\$${widget.order.price.toStringAsFixed(2)}',
@@ -229,23 +217,21 @@ class _OrderPageState extends State<OrderPage>
                       ),
                     ],
                   ),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text('Delivery Fee',
-                          style: TextStyle(
-                            fontSize: 16,
-                          )),
-                      Row(
+                          style: CustomStyleText.subheader()),
+                     Row(
                         children: [
-                          Text(
+                          const Text(
                             '\$2.0',
                             style: TextStyle(
                               decoration: TextDecoration.lineThrough,
                             ),
                           ),
-                          SizedBox(width: 12),
-                          Text('\$1.0'),
+                          SizedBoxHelper.width(12),
+                          const Text('\$1.0'),
                         ],
                       ),
                     ],
@@ -259,18 +245,18 @@ class _OrderPageState extends State<OrderPage>
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text("Self Pickup"),
-                  const SizedBox(height: 10),
-                  const Text(
+                  Text("Self Pickup", style: CustomStyleText.subheader()),
+                  SizedBoxHelper.height(10),
+                  Text(
                     'J1 . Kpg Sutuyo',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    style: CustomStyleText.header(),
                   ),
-                  const SizedBox(height: 12),
-                  const Text(
+                  SizedBoxHelper.height(12),
+                 Text(
                     'Kpg.Sutyo no. 820, Blizen, Istanbul',
-                    style: TextStyle(color: Colors.grey, fontSize: 16),
+                      style: CustomStyleText.subheader(color: Colors.grey)
                   ),
-                  const SizedBox(height: 15),
+                  SizedBoxHelper.height(15),
                   const CustomButton(
                     fontsize: 15,
                     text: 'Add note',
@@ -279,9 +265,9 @@ class _OrderPageState extends State<OrderPage>
                     backgrouncolor: Colors.white,
                     icon: Icons.newspaper,
                   ),
-                  const SizedBox(height: 12),
+                  SizedBoxHelper.height(12),
                   const Divider(height: 1),
-                  const SizedBox(height: 12),
+                  SizedBoxHelper.height(12),
                   Row(
                     children: [
                       ClipRRect(
@@ -333,9 +319,9 @@ class _OrderPageState extends State<OrderPage>
                       ),
                     ],
                   ),
-                  const SizedBox(height: 12),
+                  SizedBoxHelper.height(12),
                   const Divider(height: 1),
-                  const SizedBox(height: 12),
+                  SizedBoxHelper.height(12),
                   Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: Container(

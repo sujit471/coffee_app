@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_list/srcreens/order_page.dart';
 import 'package:to_do_list/widgets/button.dart';
-import 'package:to_do_list/widgets/mapsbottom.dart';
+import 'package:to_do_list/widgets/maps_bottom.dart';
 
 import '../model/coffee_model.dart';
 class Maps extends StatelessWidget {
@@ -10,7 +10,7 @@ final Coffee coffee;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomSheet:Bottomsheet2(),
+      bottomSheet:MapsBottom(),
       body: Stack(
         children: [
           Positioned.fill(
@@ -28,7 +28,6 @@ final Coffee coffee;
                 padding: EdgeInsets.all(8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
                   children: [
                     InkWell(
                       onTap: (){
