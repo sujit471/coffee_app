@@ -44,7 +44,7 @@ class SharedPref {
         return null;
     }
   }
-
+//in set data nothing  so void
   static Future<void> setData({required String key, required dynamic dValue, required DataType type}) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     switch (type) {
@@ -60,7 +60,7 @@ class SharedPref {
     }
   }
 
-  static Future<void> removeData({required String key, required DataType type}) async {
+  static Future<void> removeData({required String key}) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.remove(key);
   }
