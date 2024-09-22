@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:to_do_list/service/image_helper.dart';
 import 'package:to_do_list/srcreens/items_selected.dart';
 import 'package:to_do_list/widgets/button.dart';
-import '../model/coffee_model.dart';
-import '../widgets/bottomsheet.dart';
+import 'package:to_do_list/widgets/custom_style_text.dart';
+import 'package:to_do_list/model/coffee_model.dart';
+import 'package:to_do_list/service/custom_sizedbox.dart';
+import 'package:to_do_list/widgets/bottomsheet.dart';
 class Detailspage extends StatefulWidget {
   final Coffee coffee;
   final List<Coffee> coffeeList;
@@ -43,7 +46,7 @@ class _DetailspageState extends State<Detailspage> {
             },
             child: Padding(
               padding: const EdgeInsets.only(right: 15.0),
-              child: SvgPicture.asset('icon/heart.svg'),
+              child: SvgPicture.asset(AssetList.heart),
             ),
           ),
         ],
@@ -68,10 +71,7 @@ class _DetailspageState extends State<Detailspage> {
                   padding: const EdgeInsets.all(15.0),
                   child: Text(
                     widget.coffee.name,
-                    style: const TextStyle(
-                      fontSize: 19,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: CustomStyleText.header(),
                   ),
                 ),
                 Padding(
@@ -80,32 +80,27 @@ class _DetailspageState extends State<Detailspage> {
                     children: [
                       Text(
                         widget.coffee.category,
-                        style: const TextStyle(
-                          fontSize: 16,
-                          color: Colors.black,
-                        ),
+                        style: CustomStyleText.subheader(),
                       ),
-                      const SizedBox(
-                        width: 17,
-                      ),
+                      SizedBoxHelper.width(17),
                       const CustomButton.icon(
-                        iconPath: 'icon/scooter.svg',
+                        iconPath: AssetList.scooter,
                         width: 70,
                         backgrouncolor: Colors.white,
                       ),
-                      const SizedBox(width: 8),
+                      SizedBoxHelper.width(8),
                       const CustomButton.icon(
-                        iconPath: 'icon/coffe beans.svg',
+                        iconPath: AssetList.beans,
                         width: 70,
                         backgrouncolor: Colors.white,
                       ),
-                      const SizedBox(width: 8),
+                      SizedBoxHelper.width(8),
                       const CustomButton.icon(
-                        iconPath: 'icon/milk.svg',
+                        iconPath: AssetList.milk,
                         width: 70,
                         backgrouncolor: Colors.white,
                       ),
-                      const SizedBox(width: 8),
+                      SizedBoxHelper.width(8),
                     ],
                   ),
                 ),
@@ -117,7 +112,7 @@ class _DetailspageState extends State<Detailspage> {
                         Icons.star,
                         color: Colors.yellow,
                       ),
-                      const SizedBox(width: 2),
+                      SizedBoxHelper.width(2),
                       Text(
                         '${widget.coffee.rating}',
                         style: const TextStyle(
@@ -125,7 +120,7 @@ class _DetailspageState extends State<Detailspage> {
                           color: Colors.black,
                         ),
                       ),
-                      const SizedBox(width: 7),
+                      SizedBoxHelper.width(7),
                       Text('(${widget.coffee.ratingCount})'),
                     ],
                   ),
@@ -133,30 +128,23 @@ class _DetailspageState extends State<Detailspage> {
                 const Divider(
                   height: 1,
                 ),
-                const SizedBox(height: 12),
-                const Text(
+                SizedBoxHelper.height(12),
+             Text(
                   "Description",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 17),
+                  style: CustomStyleText.header(),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Text(
                     widget.coffee.description,
-                    style: const TextStyle(
-                      fontSize: 16,
+                    style: CustomStyleText.subheader(
                       color: Colors.grey,
-                    ),
+                    )
                   ),
                 ),
-                const Text(
+                 Text(
                   "Size",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 17),
+                  style:CustomStyleText.header()
                 ),
                 SizedBox(
                   height: 50,
@@ -186,12 +174,10 @@ class _DetailspageState extends State<Detailspage> {
                             child: Text(
                               variations,
                               textAlign: TextAlign.start,
-                              style: TextStyle(
-                                fontSize: 19,
-                                fontWeight: FontWeight.bold,
+                              style: CustomStyleText.header(
                                 color: _currentIndex == index
-                                    ? Colors.white
-                                    : Colors.black,
+                                      ? Colors.white
+                                : Colors.black,
                               ),
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,

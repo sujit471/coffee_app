@@ -66,9 +66,11 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - image/
+    - assets/image/
+    - assets/icon/
+#    - image/
     - mock/coffee.json
-    - icon/
+#    - icon/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

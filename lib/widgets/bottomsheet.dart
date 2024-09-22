@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_list/widgets/button.dart';
-import '../model/coffee_model.dart';
-import '../service/session_helper.dart';
-import '../srcreens/order_page.dart';
+import 'package:to_do_list/widgets/custom_style_text.dart';
+import 'package:to_do_list/model/coffee_model.dart';
+import 'package:to_do_list/service/navigation_to_page.dart';
+import 'package:to_do_list/service/session_helper.dart';
+import 'package:to_do_list/srcreens/order_page.dart';
 
 class Bottomsheet extends StatefulWidget {
   final Coffee coffee;
@@ -13,8 +15,7 @@ class Bottomsheet extends StatefulWidget {
   @override
   State<Bottomsheet> createState() => _BottomsheetState();
 }
-
-class _BottomsheetState extends State<Bottomsheet> {
+class _BottomsheetState extends State<Bottomsheet> with NavigationToPage{
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,10 +34,8 @@ class _BottomsheetState extends State<Bottomsheet> {
               ),
               Text(
                 '\$${widget.coffee.price.toStringAsFixed(2)}',
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFFC67C4E),
+                style:CustomStyleText.header(
+                  color: const Color(0xFFC67C4E),
                 ),
               ),
             ],
@@ -70,12 +69,7 @@ class _BottomsheetState extends State<Bottomsheet> {
                 );
                 selectedCoffees.add(widget.coffee);
                 await SessionHelper.saveSelectedCoffees(selectedCoffees);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => OrderPage(order: widget.coffee),
-                  ),
-                );
+              navigateTo(context, OrderPage(order: widget.coffee));
               }
             },
             backgrouncolor: const Color(0xFFC67C4E),

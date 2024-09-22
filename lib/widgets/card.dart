@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_list/service/custom_sizedbox.dart';
+import 'package:to_do_list/service/navigation_to_page.dart';
 import 'package:to_do_list/widgets/button.dart';
-import '../model/coffee_model.dart';
-import '../srcreens/detailspage.dart';
-
-class ImageCard extends StatelessWidget {
+import 'package:to_do_list/widgets/custom_style_text.dart';
+import 'package:to_do_list/model/coffee_model.dart';
+import 'package:to_do_list/srcreens/detailspage.dart';
+class ImageCard extends StatelessWidget  with NavigationToPage{
   final Coffee coffee;
   final double? tag;
   final Color? tagColor;
@@ -25,12 +27,7 @@ class ImageCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => Detailspage(coffee: coffee, coffeeList: [],),
-            )
-        );
+   navigateTo(context, Detailspage(coffee: coffee, coffeeList: []));
       },
       child: Card(
         elevation: 4,
@@ -38,13 +35,6 @@ class ImageCard extends StatelessWidget {
           width: double.infinity,
          height: 160,
           decoration: BoxDecoration(
-            // boxShadow: [
-            //   BoxShadow(
-            //     color: Colors.grey.withOpacity(0.5),
-            //     spreadRadius: 5,
-            //     blurRadius: 7,
-            //   ),
-            // ],
             color: Colors.white,
             borderRadius: BorderRadius.circular(8),
           ),
@@ -84,7 +74,8 @@ class ImageCard extends StatelessWidget {
                                 Icons.star,
                                 color: Colors.yellow,
                               ),
-                              const SizedBox(width: 4),
+                            //  const SizedBox(width: 4),
+                              SizedBoxHelper.width(4),
                               Text(
                                 tag!.toString(),
                                 style: const TextStyle(
@@ -99,17 +90,13 @@ class ImageCard extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 8),
+              SizedBoxHelper.height( 8),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text(
                   coffee.name,
                   textAlign: TextAlign.start,
-                  style: const TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold,
-                    overflow: TextOverflow.ellipsis,
-                  ),
+                  style: CustomStyleText.header(),
                   maxLines: 2,
                 ),
               ),
@@ -118,10 +105,7 @@ class ImageCard extends StatelessWidget {
                 child: Text(
                   coffee.category,
                   textAlign: TextAlign.start,
-                  style: const TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w100,
-                  ),
+                  style: CustomStyleText.subheader(),
                   maxLines: 2,
                 ),
               ),
@@ -133,19 +117,14 @@ class ImageCard extends StatelessWidget {
                     Text(
                       '\$${coffee.price.toStringAsFixed(2)}',
                       textAlign: TextAlign.start,
-                      style: const TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
+                      style: CustomStyleText.header(),
                     ),
-                    const SizedBox(width: 24),
+                     SizedBoxHelper.width( 24),
                     const CustomButton(
                       width: 60,
                       text: "+",
                       isActive: true,
                       foregroundcolor: Colors.white,
-
                     ),
                   ],
                 ),

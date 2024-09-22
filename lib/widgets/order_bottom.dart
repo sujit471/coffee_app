@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:to_do_list/srcreens/Maps.dart';
+import 'package:to_do_list/service/navigation_to_page.dart';
+import 'package:to_do_list/srcreens/maps.dart';
 import 'package:to_do_list/widgets/button.dart';
-import '../model/coffee_model.dart';
-import '../srcreens/order_page.dart';
-
-class Bottomsheet1 extends StatefulWidget {
+import 'package:to_do_list/model/coffee_model.dart';
+class OrderBottom extends StatefulWidget {
   final Coffee coffee;
 
-  const Bottomsheet1({Key? key, required this.coffee}) : super(key: key);
+  const OrderBottom({Key? key, required this.coffee}) : super(key: key);
 
   @override
-  State<Bottomsheet1> createState() => _Bottomsheet1State();
+  State<OrderBottom> createState() => _OrderBottomState();
 }
 
-class _Bottomsheet1State extends State<Bottomsheet1> {
+class _OrderBottomState extends State<OrderBottom> with NavigationToPage {
   String get total {
     return (widget.coffee.price + 1.0).toStringAsFixed(2);
   }
@@ -63,22 +62,13 @@ class _Bottomsheet1State extends State<Bottomsheet1> {
           const Spacer(),
           CustomButton(
             ontap: () {
-
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(backgroundColor:Color(0xFFC67C4E),elevation: BorderSide.strokeAlignOutside,
                 padding: EdgeInsets.all(8),
                 duration: Duration(seconds: 2),
                     content: Text("Your order has been placed")),
-
               );
-
-              // Navigate to the next page
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) =>  Maps(coffee: widget.coffee,),
-                ),
-              );
+              navigateTo(context,Maps(coffee: widget.coffee));
             },
             backgrouncolor: const Color(0xFFC67C4E),
             text: 'Order',
